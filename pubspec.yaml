@@ -35,6 +35,19 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # STATES
+  flutter_bloc: ^8.0.1
+
+  # NETWORK
+  vexana: ^2.8.1
+
+  # CORE
+  equatable: ^2.0.3
+
+  # UTILITY
+  json_annotation: ^4.5.0
+  json_serializable: ^6.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
