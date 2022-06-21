@@ -1,4 +1,8 @@
-class product_model {
+import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
+
+@JsonSerializable()
+class ProductModel extends INetworkModel<ProductModel?>{
   int? id;
   String? title;
   double? price;
@@ -7,7 +11,7 @@ class product_model {
   String? image;
   Rating? rating;
 
-  product_model(
+  ProductModel(
       {this.id,
         this.title,
         this.price,
@@ -15,17 +19,6 @@ class product_model {
         this.category,
         this.image,
         this.rating});
-
-  product_model.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    price = json['price'];
-    description = json['description'];
-    category = json['category'];
-    image = json['image'];
-    rating =
-    json['rating'] != null ? new Rating.fromJson(json['rating']) : null;
-  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -39,6 +32,18 @@ class product_model {
       data['rating'] = this.rating!.toJson();
     }
     return data;
+  }
+
+  @override
+  ProductModel? fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    price = json['price'];
+    description = json['description'];
+    category = json['category'];
+    image = json['image'];
+    rating =
+    json['rating'] != null ? new Rating.fromJson(json['rating']) : null;
   }
 }
 
